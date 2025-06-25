@@ -74,17 +74,11 @@ class TenantSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class HouseSerializer(serializers.ModelSerializer):
-    owner = OwnerSerializer(read_only=True)
-    tenants = TenantSerializer(many=True, read_only=True)
-
     class Meta:
         model = House
         fields = '__all__'
 
 class MaintenanceRequestSerializer(serializers.ModelSerializer):
-    house = HouseSerializer(read_only=True)
-    tenant = TenantSerializer(read_only=True)
-
     class Meta:
         model = MaintenanceRequest
         fields = '__all__'
